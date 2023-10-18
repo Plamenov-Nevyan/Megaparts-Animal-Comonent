@@ -1,0 +1,40 @@
+.animal-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 0 1 32%;
+    border-radius: 1.5em;
+    -webkit-box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.11);
+    -moz-box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.11);
+    box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.11);
+    .animal-image {
+        border-radius: 1.5em;
+        overflow: hidden;
+        max-height: 20em;
+        position: relative;
+        height: 20em;
+        img {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%; 
+            max-height: 100%;
+        }
+    }
+    .animal-description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        background: rgba(0, 0, 0, .4);
+        border-radius: 0 0 1.5em 1.5em;
+        h2 {
+            color: white;
+        }
+    }
+}
+

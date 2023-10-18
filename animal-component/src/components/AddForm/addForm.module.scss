@@ -1,0 +1,55 @@
+.add-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    .add-field {
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+        width: 100%;
+        gap: 1em;
+        flex-wrap: wrap;
+        label {
+            display: block;
+        }
+        input {
+            padding: 0.5em;
+            border: none;
+            outline: none;
+            border-radius: 0.4em;
+            -webkit-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.13);
+            -moz-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.13);
+            box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.13);
+        }
+        input:focus {
+            background-color: bisque;
+        }
+    }
+    #isMammal-field {
+        justify-content: initial;
+        gap: 1em;
+    }
+
+    .submit-new-btn {
+        align-self: flex-end;
+        padding: 0.5em 1em;
+        /* width: 30%; */
+        max-width: 30%;
+        background: cornflowerblue;
+        color: honeydew;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        border-radius: 0.7em;
+        cursor: pointer;
+        transition: ease-in-out 200ms;
+    }
+
+    .submit-new-btn:hover {
+        background-color: honeydew;
+        color: cornflowerblue;
+    }
+}

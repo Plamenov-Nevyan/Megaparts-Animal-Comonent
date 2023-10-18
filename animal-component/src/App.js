@@ -1,8 +1,10 @@
+import {useState} from 'react';
 import './App.css';
 import { Animal } from './components/Animal/Animal';
+import { Header } from './components/Header/Header';
 
 function App() {
-  const animals = [ 
+  const [animals, updateAnimals] = useState([ 
     { name: 'Lion', isMammal: true, image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGlvbnxlbnwwfHwwfHx8MA%3D%3D&w=500" }, 
     { name: 'Snake', isMammal: false, image: "https://plus.unsplash.com/premium_photo-1675715924047-a9cf6c539d9b?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c25ha2V8ZW58MHx8MHx8fDA%3D&w=500"}, 
     { name: 'Dolphin', isMammal: true, image: "https://images.unsplash.com/photo-1547382442-d17c21625a44?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9scGhpbnxlbnwwfHwwfHx8MA%3D%3D&w=500" }, 
@@ -20,11 +22,19 @@ function App() {
      {name: "Swallow", isMammal: false, image: "https://images.unsplash.com/photo-1444465146604-4fe67bfac6e8?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3dhbGxvd3xlbnwwfHwwfHx8MA%3D%3D&w=500"},
      {name: "Antellope", isMammal: false, image: "https://images.unsplash.com/photo-1541793647037-86afaddc1cf0?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YW50ZWxvcGV8ZW58MHx8MHx8fDA%3D&w=500"},
      {name: "Raven", isMammal: false, image: "https://images.unsplash.com/photo-1433888376991-1297486ba3f5?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmF2ZW58ZW58MHx8MHx8fDA%3D&w=500"}
-    ];
+    ])
+
+    function onAddNewAnimal(e, animalData){
+      e.preventDefault()
+      updateAnimals(oldData => [...oldData, animalData])
+    }
   return (
+    <>
+    <Header onAddNewAnimal={onAddNewAnimal}/>
     <div className="App">
       {animals.map((animal, index) => <Animal key={index} name={animal.name} isMammal={animal.isMammal} image={animal.image} />)}
     </div>
+    </>
   );
 }
 
