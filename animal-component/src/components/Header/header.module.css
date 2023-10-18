@@ -19,6 +19,47 @@
   transform: translateY(0);
   transition: transform 0.5s;
 }
+.site-header .error-bubble-container {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: -25%;
+}
+.site-header .error-bubble-container .error-bubble {
+  font-size: 1.1em;
+  color: #fff;
+  background: #a53d38;
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 320px;
+}
+.site-header .error-bubble-container .error-bubble .confirm-error-btn {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.site-header .error-bubble-container .error-bubble .confirm-error-btn svg {
+  max-width: 1.5em;
+  max-height: 1.5em;
+  fill: limegreen;
+}
+.site-header .error-bubble-container .error-bubble::after {
+  content: "";
+  border: 20px solid transparent;
+  position: absolute;
+  border-right-color: #a53d38;
+  border-left: 0;
+  left: -20px;
+  top: 50%;
+  margin-top: -20px;
+}
 .site-header .header-decor-in-view {
   transform: translateY(-100%);
 }

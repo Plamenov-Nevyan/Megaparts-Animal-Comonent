@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styles from "./addForm.module.css"
 
-export function AddForm({formValues, onValuesChange, onAddNewAnimal, onShowForm}){
+export function AddForm({formValues, onValuesChange, onAddNewAnimal, onShowForm, validateNewAnimal}){
     return (
         <form  className={styles["add-form"]}>
             <fieldset className={styles["add-field"]}>
@@ -17,8 +17,11 @@ export function AddForm({formValues, onValuesChange, onAddNewAnimal, onShowForm}
                 <input type="checkbox" name="isMammal" id="isMammal" checked = {formValues.isMammal} onChange={(e) => onValuesChange(e)}/>
             </fieldset>
             <button className={styles["submit-new-btn"]} onClick={(e) => {
-                onShowForm()
-                onAddNewAnimal(e, formValues)
+                let error = validateNewAnimal(e, formValues)
+                if(!error){
+                    onShowForm()
+                    onAddNewAnimal(e, formValues)
+                }
             }}>Add</button>
         </form>
     )
