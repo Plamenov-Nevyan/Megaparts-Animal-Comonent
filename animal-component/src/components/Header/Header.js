@@ -6,16 +6,17 @@ import logo2 from "./logo2.png"
 import penguin from "./penguin.png"
 
 export function Header({onAddNewAnimal}){
-    const [addFormState, openCloseAddForm] = useState(false)
-    const [isLogoInViewport, setIsLogoInViewport] = useState(false)
-    const [animateDecorImg, setAnimateDecorImg] = useState(false)
-    const [error, setError] = useState('')
-    const [formValues, updateFormValues] = useState({
+    const [addFormState, openCloseAddForm] = useState(false) // <-- state for new article form's visibility
+    const [isLogoInViewport, setIsLogoInViewport] = useState(false) //<-- state for changing the logo class after animation
+    const [animateDecorImg, setAnimateDecorImg] = useState(false) //<-- state for changing the decor img class after animation
+    const [error, setError] = useState('') //<-- state for keeping error
+    const [formValues, updateFormValues] = useState({  //<-- state for new article form's values
         name: '',
         isMammal: false,
         image: ''
     })
     function onShowForm(){
+        // function to close and show new article form
         if(addFormState){
             updateFormValues(() => {
                 return {
@@ -31,10 +32,12 @@ export function Header({onAddNewAnimal}){
     }
 
     useEffect(() => {
+        // change logo's class when slide animation is completed
         setIsLogoInViewport(true)
     }, [])
 
     useEffect(() => {
+        // Animate the decor img after half second timeout
         const animationTimeout = setTimeout(() => {
             setAnimateDecorImg(true);
         }, 500);
@@ -45,6 +48,7 @@ export function Header({onAddNewAnimal}){
       }, []);
 
     function onValuesChange(e){
+        //update form values when user enters something in the inputs
         updateFormValues(oldValues => {
             return {
                 ...oldValues,
@@ -54,6 +58,7 @@ export function Header({onAddNewAnimal}){
     }
 
     function validateNewAnimal(e, formValues){
+        // error handling if user tries to create new animal with empty inputs, it's visualized through a bubble div managed by "error" state
         e.preventDefault()
         let isThereError = false
         if(formValues.name === '' && formValues.image === ''){
@@ -67,6 +72,7 @@ export function Header({onAddNewAnimal}){
     }
     
     function confirmErrors(){
+        // hide the red bubble visualizing errors, called when user clicks on a button inside the bubble
         setError('')
     }
 

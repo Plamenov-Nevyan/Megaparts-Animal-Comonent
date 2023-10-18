@@ -1,7 +1,11 @@
-import { useState } from "react"
 import styles from "./addForm.module.css"
 
 export function AddForm({formValues, onValuesChange, onAddNewAnimal, onShowForm, validateNewAnimal}){
+    // Component for a form that allows the user to create a new animal article
+    // It accepts the form values in Header component so it can accordingly set the values of it's inputs, onValuesChange function
+    // that will allow to update form's state in parent component, addnewAnimal function to create new article in App component, showForm
+    // function , so the form's visibility state can be changed to hidden when creating new article and validation function for empty
+    // inputs 
     return (
         <form  className={styles["add-form"]}>
             <fieldset className={styles["add-field"]}>
