@@ -1,3 +1,5 @@
+@import "../../../public/breakpoints.scss" ;
+
 .animal-item {
     display: flex;
     flex-direction: column;
@@ -7,6 +9,9 @@
     -webkit-box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.11);
     -moz-box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.11);
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.11);
+    @include mdl {
+        width: 100%;
+    }
     .animal-image {
         border-radius: 1.5em;
         overflow: hidden;
@@ -27,6 +32,8 @@
         position: absolute;
         bottom: 0;
         left: 0;
+        flex-wrap: wrap;
+        padding: 0.1em;
         width: 100%;
         display: flex;
         justify-content: space-around;

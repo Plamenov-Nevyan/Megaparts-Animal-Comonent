@@ -4,6 +4,25 @@
   align-items: flex-start;
   gap: 1em;
 }
+@media only screen and (max-width: 1070px) {
+  .add-form {
+    position: absolute;
+    bottom: -14.4em;
+    background: #cac5ff;
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .add-form {
+    bottom: -15.4em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .add-form {
+    bottom: -21em;
+  }
+}
 .add-form .add-field {
   border: none;
   display: flex;
@@ -16,13 +35,25 @@
 }
 .add-form .add-field label {
   display: block;
+  flex: 0 1 30%;
+}
+@media only screen and (max-width: 600px) {
+  .add-form .add-field label {
+    flex-grow: 1;
+  }
 }
 .add-form .add-field input {
   padding: 0.5em;
   border: none;
   outline: none;
+  flex: 0 1 50%;
   border-radius: 0.4em;
   box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.13);
+}
+@media only screen and (max-width: 600px) {
+  .add-form .add-field input {
+    flex-grow: 1;
+  }
 }
 .add-form .add-field input:focus {
   background-color: bisque;
@@ -44,6 +75,11 @@
   border-radius: 0.7em;
   cursor: pointer;
   transition: ease-in-out 200ms;
+}
+@media only screen and (max-width: 768px) {
+  .add-form .submit-new-btn {
+    align-self: flex-start;
+  }
 }
 .add-form .submit-new-btn:hover {
   background-color: honeydew;

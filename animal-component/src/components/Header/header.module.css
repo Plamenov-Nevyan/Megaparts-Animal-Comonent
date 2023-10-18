@@ -19,11 +19,48 @@
   transform: translateY(0);
   transition: transform 0.5s;
 }
+@media only screen and (max-width: 1390px) {
+  .site-header .header-decor {
+    left: 0;
+    top: 70%;
+    z-index: 5;
+    transform: scaleX(-1);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .site-header .header-decor {
+    left: 0;
+    top: 40%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .site-header .header-decor {
+    max-width: 10em;
+  }
+}
 .site-header .error-bubble-container {
   position: absolute;
   z-index: 3;
   left: 50%;
   top: -25%;
+}
+@media only screen and (max-width: 1390px) {
+  .site-header .error-bubble-container {
+    left: 15%;
+    top: 35%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .site-header .error-bubble-container {
+    left: 18%;
+    top: -20%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .site-header .error-bubble-container {
+    left: 22%;
+    top: -42%;
+  }
 }
 .site-header .error-bubble-container .error-bubble {
   font-size: 1.1em;
@@ -77,6 +114,12 @@
   transform: translateX(-100%);
   transition: transform 0.5s;
 }
+@media only screen and (max-width: 1070px) {
+  .site-header .logo-section {
+    -webkit-clip-path: none;
+            clip-path: none;
+  }
+}
 .site-header .logo-section img:first-child {
   max-width: 70%;
 }
@@ -99,6 +142,13 @@
   transform: translateX(100%);
   transition: transform 0.5s;
 }
+@media only screen and (max-width: 1070px) {
+  .site-header .add-new-section {
+    -webkit-clip-path: initial;
+            clip-path: initial;
+    position: relative;
+  }
+}
 .site-header .add-new-section #add-new-btn {
   padding: 0.5em 1em;
   background: rgba(0, 0, 0, 0.4);
@@ -109,6 +159,11 @@
   color: white;
   transition: ease-in-out 200ms;
   font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+  .site-header .add-new-section #add-new-btn {
+    align-self: flex-start;
+  }
 }
 .site-header .add-new-section #add-new-btn:hover {
   background-color: white;
