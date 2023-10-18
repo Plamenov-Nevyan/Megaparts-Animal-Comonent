@@ -1,7 +1,7 @@
 import styles from "./animal.module.css"
 export function Animal({name, isMammal, image}){
     return (
-        <div className={styles["animal-item"]}>
+        <div className={styles["animal-item"] + " " + styles["fade-in"]}>
             <div className={styles["animal-image"]}>
                 <img src={image} alt={name + "-image"} />
             </div>

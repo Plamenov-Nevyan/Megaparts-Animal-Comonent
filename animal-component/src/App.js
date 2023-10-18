@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import './App.css';
 import { Animal } from './components/Animal/Animal';
 import { Header } from './components/Header/Header';
@@ -23,6 +23,20 @@ function App() {
      {name: "Antellope", isMammal: false, image: "https://images.unsplash.com/photo-1541793647037-86afaddc1cf0?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YW50ZWxvcGV8ZW58MHx8MHx8fDA%3D&w=500"},
      {name: "Raven", isMammal: false, image: "https://images.unsplash.com/photo-1433888376991-1297486ba3f5?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmF2ZW58ZW58MHx8MHx8fDA%3D&w=500"}
     ])
+    const appRef = useRef()
+    useEffect(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      });
+      appRef.current.querySelectorAll('.fade-in').forEach((item) => {
+        console.log(`entry`)
+        observer.observe(item);
+      });
+    }, []);
 
     function onAddNewAnimal(e, animalData){
       e.preventDefault()
@@ -31,7 +45,7 @@ function App() {
   return (
     <>
     <Header onAddNewAnimal={onAddNewAnimal}/>
-    <div className="App">
+    <div className="App" ref={appRef}>
       {animals.map((animal, index) => <Animal key={index} name={animal.name} isMammal={animal.isMammal} image={animal.image} />)}
     </div>
     </>

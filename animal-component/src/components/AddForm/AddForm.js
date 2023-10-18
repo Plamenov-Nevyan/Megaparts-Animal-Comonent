@@ -1,9 +1,9 @@
 import { useState } from "react"
 import styles from "./addForm.module.css"
 
-export function AddForm({formValues, onValuesChange, onAddNewAnimal}){
+export function AddForm({formValues, onValuesChange, onAddNewAnimal, onShowForm}){
     return (
-        <form className={styles["add-form"]}>
+        <form  className={styles["add-form"]}>
             <fieldset className={styles["add-field"]}>
                 <label htmlFor="name">Animal Name</label>
                 <input type="text" name="name" id="name" value={formValues.name} onChange={(e) => onValuesChange(e)}/>
@@ -16,7 +16,10 @@ export function AddForm({formValues, onValuesChange, onAddNewAnimal}){
                 <label htmlFor="isMammal">Is it a Mammal</label>
                 <input type="checkbox" name="isMammal" id="isMammal" checked = {formValues.isMammal} onChange={(e) => onValuesChange(e)}/>
             </fieldset>
-            <button className={styles["submit-new-btn"]} onClick={(e) => onAddNewAnimal(e, formValues)}>Add</button>
+            <button className={styles["submit-new-btn"]} onClick={(e) => {
+                onShowForm()
+                onAddNewAnimal(e, formValues)
+            }}>Add</button>
         </form>
     )
 }
